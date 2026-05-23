@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>롯데하이마트 청량리점 | 웨딩·입주가전 특별혜택 지정점</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'SeoulAlrim';
+    src: url('서울알림/otf/SeoulAlrim-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'SeoulAlrim';
+    src: url('서울알림/otf/SeoulAlrim-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'SeoulAlrim';
+    src: url('서울알림/otf/SeoulAlrim-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'SeoulAlrim';
+    src: url('서울알림/otf/SeoulAlrim-Heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  html, body { background: #ede3f8; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #2a1a4a;
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 0 40px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  /* ======= TOP BAR ======= */
+  .topbar {
+    background: #2a1a4a;
+    color: #fff;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  .topbar strong { color: #ffd35a; font-weight: 700; }
+
+  /* ======= HERO (이미지1 레퍼런스 컨셉) ======= */
+  .hero {
+    position: relative;
+    background: linear-gradient(170deg, #efe1ff 0%, #d4b8f5 55%, #b993e8 100%);
+    color: #2a1a4a;
+    padding: 22px 24px 44px;
+    overflow: hidden;
+  }
+
+  /* ===== 데코 (저투명도 워터마크 스타일) =====
+     풍선 3개: opacity 0.20, 라벤더 컬러 변환 (hue-rotate)
+     선물상자 3개: opacity 0.15  */
+  .deco {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  /* 풍선 공통: 파란 → 라벤더 톤 변환 */
+  .deco-balloon-tr,
+  .deco-balloon-ml {
+    filter: hue-rotate(70deg) saturate(0.7) brightness(1.05);
+  }
+  /* 풍선 — 우상단 (3DAYS 오른쪽), 1.5배 확대 (130 → 200) */
+  .deco-balloon-tr {
+    top: 80px;
+    right: -50px;
+    width: 200px;
+    transform: rotate(12deg);
+    opacity: 0.35;
+  }
+  /* 풍선 — 좌중단 (가전 왼쪽 위), 1.5배 확대 (120 → 185) */
+  .deco-balloon-ml {
+    top: 330px;
+    left: -52px;
+    width: 185px;
+    transform: rotate(-14deg);
+    opacity: 0.35;
+  }
+  /* 선물상자 — 좌하단 (가전 아래) */
+  .deco-gift-bl {
+    bottom: 80px;
+    left: -22px;
+    width: 110px;
+    transform: rotate(-8deg);
+    opacity: 0.15;
+  }
+  /* 선물상자 — 우하단 (사전예약 바 옆/아래) */
+  .deco-gift-br {
+    bottom: 24px;
+    right: -34px;
+    width: 170px;
+    transform: rotate(14deg);
+    opacity: 0.15;
+  }
+  /* 풍선 — TV 위쪽 (우측 중앙). 기존 선물상자(285px)에서 0.5배 축소 → 143px */
+  .deco-balloon-tv {
+    top: 400px;
+    right: 10px;
+    width: 143px;
+    transform: rotate(25deg);
+    opacity: 0.35;
+    filter: hue-rotate(70deg) saturate(0.7) brightness(1.05);
+  }
+
+  /* ===== 상단 풍선 데코 띠 ===== */
+  .deco-top-band {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.20;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+  }
+
+  /* ===== 폭죽 종이(컨페티) — 3DAYS 주변 ===== */
+  .confetti {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    background: #ffffff;
+    border-radius: 1px;
+  }
+  /* 좌측 클러스터 */
+  .cf-1  { top: 195px; left: 18px;  width: 10px; height: 5px;  transform: rotate(28deg);  opacity: 0.80; }
+  .cf-2  { top: 215px; left: 36px;  width: 7px;  height: 4px;  transform: rotate(-12deg); opacity: 0.55; }
+  .cf-3  { top: 245px; left: 14px;  width: 12px; height: 4px;  transform: rotate(58deg);  opacity: 0.70; }
+  .cf-4  { top: 270px; left: 42px;  width: 6px;  height: 3px;  transform: rotate(-40deg); opacity: 0.45; }
+  .cf-5  { top: 300px; left: 22px;  width: 9px;  height: 5px;  transform: rotate(70deg);  opacity: 0.60; }
+  .cf-6  { top: 230px; left: 60px;  width: 5px;  height: 5px;  transform: rotate(45deg);  opacity: 0.50; }
+  /* 우측 클러스터 */
+  .cf-7  { top: 200px; right: 22px; width: 11px; height: 5px;  transform: rotate(-22deg); opacity: 0.85; }
+  .cf-8  { top: 222px; right: 42px; width: 7px;  height: 4px;  transform: rotate(16deg);  opacity: 0.55; }
+  .cf-9  { top: 252px; right: 14px; width: 12px; height: 4px;  transform: rotate(-55deg); opacity: 0.70; }
+  .cf-10 { top: 280px; right: 36px; width: 6px;  height: 3px;  transform: rotate(38deg);  opacity: 0.45; }
+  .cf-11 { top: 308px; right: 20px; width: 9px;  height: 5px;  transform: rotate(-70deg); opacity: 0.60; }
+  .cf-12 { top: 235px; right: 64px; width: 5px;  height: 5px;  transform: rotate(-45deg); opacity: 0.50; }
+  /* 상단/하단 점 */
+  .cf-13 { top: 175px; left: 48%;   width: 4px;  height: 4px;  transform: rotate(45deg);  opacity: 0.55; }
+  .cf-14 { top: 325px; left: 42%;   width: 8px;  height: 3px;  transform: rotate(20deg);  opacity: 0.50; }
+  .cf-15 { top: 188px; left: 38%;   width: 6px;  height: 3px;  transform: rotate(-30deg); opacity: 0.45; }
+  .cf-16 { top: 335px; left: 56%;   width: 5px;  height: 4px;  transform: rotate(60deg);  opacity: 0.55; }
+
+  /* 상단 영역 */
+  .hero-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 22px;
+  }
+  .hero-store-pill {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.9);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+    letter-spacing: -0.2px;
+  }
+
+  /* 스크립트 배지 */
+  .script-badge {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.9);
+    padding: 16px 28px 12px;
+    border-radius: 14px;
+    width: max-content;
+    margin: 0 auto 24px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(106,58,168,0.12);
+  }
+  .script-line1 {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5a2db0;
+    line-height: 1.05;
+    display: block;
+  }
+  .script-line2 {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5a2db0;
+    line-height: 1;
+    display: block;
+  }
+  .script-heart {
+    display: inline-block;
+    color: #e85a8c;
+    font-size: 20px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* 메인 타이틀 */
+  .hero-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    margin-top: 18px;
+  }
+  /* 공통 outline + 입체 효과 (레퍼런스 컨셉, 퍼플톤) */
+  .t-line1 {
+    display: block;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 6px;
+    letter-spacing: -0.6px;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.95);
+  }
+  .t-line2 {
+    display: block;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 44.5px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 14px;
+    text-shadow:
+      0 0 7px rgba(255,255,255,0.95);
+  }
+  .t-line3 {
+    display: block;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 107px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0;
+    margin-top: 0;
+    text-shadow:
+      /* ① 그라데이션 외곽선 4px — 3링 누적, 상단/좌측 미디엄 라벤더 → 하단/우측 딥퍼플 */
+      /* 안쪽 링 (2px) */
+      0   -2px   0 #c8aef3,
+      -1.5px -1.5px 0 #b88de0,
+      -2px  0    0 #a87edb,
+      -1.5px 1.5px 0 #8b5fc8,
+      0    2px   0 #3a1a7a,
+      1.5px 1.5px 0 #4a1f95,
+      2px   0    0 #6b3aa8,
+      1.5px -1.5px 0 #b88de0,
+      /* 중간 링 (3px) */
+      0   -3px   0 #c8aef3,
+      -2.2px -2.2px 0 #b88de0,
+      -3px  0    0 #a87edb,
+      -2.2px 2.2px 0 #8b5fc8,
+      0    3px   0 #3a1a7a,
+      2.2px 2.2px 0 #4a1f95,
+      3px   0    0 #6b3aa8,
+      2.2px -2.2px 0 #b88de0,
+      /* 바깥 링 (4px) */
+      0   -4px   0 #c8aef3,
+      -3px  -3px 0 #b88de0,
+      -4px  0    0 #a87edb,
+      -3px  3px  0 #8b5fc8,
+      0    4px   0 #3a1a7a,
+      3px   3px  0 #4a1f95,
+      4px   0    0 #6b3aa8,
+      3px  -3px  0 #b88de0,
+      /* ② 유리 굴절 halo — 외곽선 바로 바깥에 부드러운 라벤더 광 */
+      0 0 8px rgba(196,163,230,0.95),
+      0 0 16px rgba(180,140,235,0.6),
+      /* ③ Extrude — 연한 라벤더 블록 (외곽선 두께만큼 더 내려서) */
+      0 5px 0 #b88de0,
+      0 8px 0 #b88de0,
+      0 11px 0 #b88de0,
+      /* ④ 자연스러운 바닥 그림자 */
+      0 17px 20px rgba(120,80,180,0.25);
+  }
+
+  .hero-sub {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 24px;
+    color: #000000;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.95);
+  }
+
+  .hero-prebook {
+    position: relative;
+    z-index: 2;
+    margin-top: 18px;
+    text-align: center;
+    background: rgba(42,26,74,0.9);
+    color: #fff;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .hero-prebook .prebook-label { color: rgba(255,255,255,0.85); }
+  .hero-prebook .prebook-date { color: #ffd35a; font-weight: 800; }
+
+  .hero-trust {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(255,255,255,0.5);
+    font-size: 19.5px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .hero-trust .dot { margin: 0 4px; opacity: 0.6; }
+  /* 히어로 trust 라인 — 1등 배지 그라데이션/효과 제거하고 흰색으로 통일 */
+  .hero-trust .rank-badge,
+  .hero-trust .rank-badge .rank-num,
+  .hero-trust .rank-badge .rank-suffix {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+            background-clip: border-box !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    -webkit-text-stroke: 0 !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+  }
+
+  /* 가전 이미지 (서브카피 밑) */
+  .hero-products {
+    position: relative;
+    z-index: 2;
+    margin: 24px -24px 0;
+    text-align: center;
+    width: calc(100% + 48px);
+  }
+  .hero-products img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* 각 가전 실루엣 바로 밑에 깔리는 다크퍼플 그림자 */
+    filter: drop-shadow(0 6px 6px rgba(28, 10, 70, 0.55));
+  }
+
+  /* ======= SECTION GENERIC ======= */
+  section { padding: 56px 28px; }
+  .eyebrow {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #5a2db0;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  h2 {
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 16px;
+    letter-spacing: -0.6px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.95);
+    text-align: center;
+  }
+  .lead {
+    font-size: 15px;
+    color: #5a4a78;
+    line-height: 1.75;
+  }
+
+  /* ======= SECTION 1: 특화매장 강조 ======= */
+  .sec-highlight {
+    background: #faf3ff;
+    text-align: center;
+    border-bottom: 1px solid #e2d4f0;
+  }
+  /* 히어로의 hero-store-pill과 동일한 칩 스타일 */
+  .sec-highlight .eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.9);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    text-align: center;
+  }
+  .sec-highlight .lead { margin-top: 12px; }
+  .sec-highlight .punch {
+    display: inline-block;
+    margin-top: 22px;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 24px;
+    color: #5a2db0;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 10px 18px;
+    border-top: 1px solid #5a2db0;
+    border-bottom: 1px solid #5a2db0;
+  }
+
+  /* ======= SECTION 2: 왜 청량리점 — 4 reasons ======= */
+  .sec-reasons { background: #fff; }
+  /* 히어로의 hero-store-pill과 동일한 칩 스타일 */
+  .sec-reasons .eyebrow {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto 14px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(196, 163, 230, 0.6);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    text-align: center;
+  }
+  .reasons-grid {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .reason-card {
+    background: #f6eeff;
+    border: 1px solid #e2d4f0;
+    border-radius: 14px;
+    padding: 22px 20px 22px 64px;
+    position: relative;
+  }
+  .reason-num {
+    position: absolute;
+    top: 22px; left: 18px;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 28px;
+    color: #2a1a4a;
+    opacity: 0.95;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+  .reason-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2a1a4a;
+    letter-spacing: -0.3px;
+    text-align: left;
+  }
+  .reason-card p {
+    font-size: 15px;
+    color: #5a4a78;
+    line-height: 1.7;
+  }
+
+  /* ======= SECTION 3: 고민 ======= */
+  .sec-pains {
+    background: linear-gradient(180deg, #2a1a4a 0%, #3a1f6e 100%);
+    color: #fff;
+  }
+  /* 히어로의 hero-store-pill과 동일한 칩 스타일 (글자색은 다크퍼플) */
+  .sec-pains .eyebrow {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto 14px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.9);
+    color: #2a1a4a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    text-align: center;
+  }
+  /* 타이틀 ↔ pain-cta 스타일 스왑 */
+  .sec-pains h2 {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffd35a;
+    line-height: 1.45;
+    letter-spacing: -0.3px;
+    text-shadow: none;
+    margin-bottom: 0;
+  }
+  /* ===== 말풍선 스타일 ===== */
+  .pain-list {
+    margin-top: 60px; /* h2 ↔ 첫 풍선 60px = 풍선 위 이모지(28px)와의 시각 거리 32px */
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    overflow: visible;
+  }
+  .pain-item {
+    position: relative;
+    background: #ffffff;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a1a4a;
+    letter-spacing: -0.3px;
+    display: block;
+    box-shadow: 0 8px 24px rgba(20, 8, 50, 0.35);
+    max-width: 88%;
+  }
+  /* 말풍선 꼬리 — 사선으로 길게 뻗는 형태 */
+  .pain-item::before {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 32px;
+    background: #ffffff;
+    bottom: -22px;
+  }
+  /* 이모지 슬롯 (개별 항목에서 content로 채움) */
+  .pain-item::after {
+    content: '';
+    position: absolute;
+    font-size: 44px;
+    line-height: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 6px rgba(20, 8, 50, 0.25));
+  }
+
+  /* 좌/우 번갈아 배치 */
+  .pain-item:nth-child(odd)  { align-self: flex-start; }
+  .pain-item:nth-child(odd)::before  {
+    left: 30px;
+    clip-path: polygon(75% 0%, 100% 0%, 0% 100%);
+  }
+  .pain-item:nth-child(even) { align-self: flex-end; }
+  .pain-item:nth-child(even)::before {
+    right: 30px;
+    clip-path: polygon(0% 0%, 25% 0%, 100% 100%);
+  }
+
+  /* 개별 이모지 (3개) */
+  .pain-item:nth-child(1)::after {
+    content: '🤔';
+    top: -28px;
+    right: -10px;
+  }
+  .pain-item:nth-child(2)::after {
+    content: '😵‍💫';
+    top: -28px;
+    left: -10px;
+  }
+  .pain-item:nth-child(4)::after {
+    content: '😟';
+    bottom: -32px;
+    right: -10px;
+  }
+  .pain-dots {
+    margin-top: 32px;
+    text-align: center;
+    line-height: 0.7;
+    color: rgba(255,255,255,0.55);
+  }
+  .pain-dots span {
+    display: block;
+    font-size: 32px;
+    font-weight: 900;
+  }
+  .pain-dots span + span { margin-top: -3px; }
+  .pain-cta {
+    margin-top: 24px;
+    text-align: center;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+    text-shadow:
+      0 0 8px  rgba(196, 163, 230, 0.22),
+      0 0 22px rgba(196, 163, 230, 0.15),
+      0 0 48px rgba(196, 163, 230, 0.08),
+      0 0 80px rgba(196, 163, 230, 0.04);
+  }
+  .pain-cta .cta-medium { font-weight: 500; }
+
+  /* ======= SECTION 4: 웨딩크라우드 ======= */
+  .sec-partner {
+    background: #faf3ff;
+    text-align: center;
+    border-top: 1px solid #e2d4f0;
+    border-bottom: 1px solid #e2d4f0;
+  }
+  .partner-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(196, 163, 230, 0.6);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    margin-bottom: 16px;
+  }
+  .partner-title {
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #5a2db0;
+    letter-spacing: -1.2px;
+    word-spacing: -2px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.95);
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 40px;
+    white-space: nowrap;
+  }
+  .partner-title .rank-badge {
+    margin-left: 0;
+  }
+  .partner-title-wrap {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 16px;
+    padding: 30px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .partner-title { position: relative; z-index: 2; }
+
+  /* ===== 폭죽(컨페티) — sec-benefits 상단 전체 폭, 크게 ===== */
+  .partner-confetti {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 2px;
+  }
+  /* 좌측 클러스터 (섹션 상단 0~220px 범위) */
+  .pc-1  { top: 30px;  left: 4%;   width: 22px; height: 9px;  transform: rotate(28deg);  background: #5a2db0;  opacity: 0.85; }
+  .pc-2  { top: 75px;  left: 12%;  width: 14px; height: 7px;  transform: rotate(-12deg); background: #b88de0;  opacity: 0.7; }
+  .pc-3  { top: 130px; left: 3%;   width: 26px; height: 8px;  transform: rotate(58deg);  background: #7a4dc0;  opacity: 0.8; }
+  .pc-4  { top: 180px; left: 14%;  width: 12px; height: 6px;  transform: rotate(-40deg); background: #5a2db0;  opacity: 0.55; }
+  .pc-5  { top: 60px;  left: 22%;  width: 18px; height: 9px;  transform: rotate(70deg);  background: #b88de0;  opacity: 0.65; }
+  .pc-6  { top: 110px; left: 28%;  width: 10px; height: 10px; transform: rotate(45deg);  background: #5a2db0;  opacity: 0.55; }
+  /* 우측 클러스터 */
+  .pc-7  { top: 28px;  right: 5%;  width: 24px; height: 9px;  transform: rotate(-22deg); background: #5a2db0;  opacity: 0.85; }
+  .pc-8  { top: 78px;  right: 14%; width: 14px; height: 7px;  transform: rotate(16deg);  background: #b88de0;  opacity: 0.7; }
+  .pc-9  { top: 135px; right: 3%;  width: 26px; height: 8px;  transform: rotate(-55deg); background: #7a4dc0;  opacity: 0.8; }
+  .pc-10 { top: 185px; right: 12%; width: 12px; height: 6px;  transform: rotate(38deg);  background: #5a2db0;  opacity: 0.55; }
+  .pc-11 { top: 58px;  right: 22%; width: 18px; height: 9px;  transform: rotate(-70deg); background: #b88de0;  opacity: 0.65; }
+  .pc-12 { top: 115px; right: 30%; width: 10px; height: 10px; transform: rotate(-45deg); background: #5a2db0;  opacity: 0.55; }
+  /* 상/중앙 흩뿌림 */
+  .pc-13 { top: 12px;  left: 48%;  width: 8px;  height: 8px;  transform: rotate(45deg);  background: #5a2db0;  opacity: 0.75; }
+  .pc-14 { top: 200px; left: 42%;  width: 16px; height: 6px;  transform: rotate(20deg);  background: #b88de0;  opacity: 0.7; }
+  .pc-15 { top: 40px;  left: 38%;  width: 12px; height: 6px;  transform: rotate(-30deg); background: #7a4dc0;  opacity: 0.7; }
+  .pc-16 { top: 165px; left: 56%;  width: 10px; height: 8px;  transform: rotate(60deg);  background: #5a2db0;  opacity: 0.7; }
+  .partner-title .title-top {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  .partner-title .title-bottom {
+    display: block;
+    font-size: 52px;
+    line-height: 1.05;
+  }
+  /* "1등" 배지 — 퍼플 그라데이션 (전국과 같은 폰트/크기, 외곽선 없음) */
+  .rank-badge {
+    display: inline-block;
+    line-height: inherit;
+    margin-left: 4px;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .rank-badge .rank-num,
+  .rank-badge .rank-suffix {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    background: linear-gradient(135deg, #b88de0 0%, #5a2db0 50%, #2a1a4a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+  }
+  .partner-x {
+    margin-top: 24px;
+    padding: 22px 18px;
+    border: 1.5px solid #e2d4f0;
+    border-radius: 16px;
+    background: rgba(232, 220, 248, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 히어로 내부 콜라보 로고 박스 — 라벤더 배경 위에서 가독성 보강 */
+  .hero-partner-x {
+    position: relative;
+    z-index: 2;
+    margin-top: 22px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(4px);
+  }
+  .partner-x .partner-collab {
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  .partner-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #8a7aa8;
+  }
+
+  /* ======= SECTION 5: 혜택 + 파트너 (통합) ======= */
+  .sec-benefits {
+    background: linear-gradient(180deg, #faf3ff 0%, #efe1ff 60%, #e9d8f7 100%);
+    border-top: 1px solid #e2d4f0;
+    position: relative;
+    overflow: hidden;
+  }
+  /* sec-benefits 내부 일반 h2 — '혜택 규모부터 다른 입주·웨딩가전' */
+  .sec-benefits > h2 {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+    text-shadow: none;
+    color: #000000;
+    margin-top: -16px;
+    position: relative;
+    z-index: 3;
+  }
+  .sec-benefits > h2 > span {
+    font-weight: 600 !important;
+    color: #000000;
+  }
+  .sec-benefits .partner-title-wrap {
+    margin-bottom: 28px;
+  }
+  .sec-benefits .partner-x {
+    margin-top: 28px;
+  }
+  /* 히어로의 hero-store-pill과 동일한 칩 스타일 */
+  .sec-benefits .eyebrow {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto 14px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(196, 163, 230, 0.6);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    text-align: center;
+  }
+  /* ===== 혜택 그리드 (네모 박스 카드 레이아웃) ===== */
+  .benefits {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .benefit-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2d4f0;
+    border-radius: 12px;
+    padding: 22px 14px 20px;
+    box-shadow: 0 2px 8px rgba(90, 45, 176, 0.05);
+    min-height: 160px;
+  }
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+    color: #5a2db0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .benefit-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  /* PNG 아이콘(쿠폰/혜택/카드/티비) — 80x80 정사각 박스로 통일, 이미지는 contain */
+  .benefit-row:first-child .benefit-icon,
+  .benefit-row:nth-child(2) .benefit-icon,
+  .benefit-row:nth-child(3) .benefit-icon,
+  .benefit-row:nth-child(4) .benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 4px;
+  }
+
+  .benefit-label {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #5a2db0;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    word-break: keep-all;
+    word-spacing: -3px;
+    letter-spacing: -0.4px;
+  }
+  /* 라벨 옆 인라인 강조 (두꺼운 두께) */
+  .benefit-strong {
+    font-weight: 800;
+    color: #5a2db0;
+    margin-left: 2px;
+  }
+  .benefit-value {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #5a2db0;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .benefit-value small {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #5a2db0;
+    font-weight: 600;
+    margin-left: 3px;
+  }
+  .benefit-value.check {
+    color: #5a2db0;
+    font-size: 28px;
+  }
+
+  /* 청량리점 단독 혜택 — 전체 폭, CTA 그라데이션 배경, 흰 글씨 */
+  .benefit-row.benefit-highlight {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 0;
+    padding: 18px 16px;
+    background: linear-gradient(135deg, #5a2db0 0%, #2a1a4a 100%);
+    border: 1px solid #2a1a4a;
+    box-shadow: 0 4px 14px rgba(42, 26, 74, 0.18);
+  }
+  .benefit-row.benefit-highlight .benefit-label {
+    font-weight: 800;
+    font-size: 28.5px;
+    margin-bottom: 0;
+    letter-spacing: -0.3px;
+    word-spacing: normal;
+    /* 진한 옐로우 ↔ 아주 연한 옐로우 그라데이션 */
+    background: linear-gradient(135deg, #ffd35a 0%, #fff6c8 60%, #fffbe6 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* 글자 어둠 분리 위해 가벼운 drop-shadow */
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+    text-shadow: none;
+    display: inline-block;
+    transform-origin: center center;
+    animation: highlight-grow 1.6s ease-in-out infinite;
+  }
+  @keyframes highlight-grow {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+  }
+  /* 확성기 좌/우 데코 — 바깥쪽을 향하고 살짝 기울어짐 */
+  .highlight-megaphone {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+  }
+  .highlight-megaphone.left  { transform: scaleX(-1) rotate(-5deg); }
+  .highlight-megaphone.right { transform: rotate(5deg); }
+  @keyframes neon-pulse {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.25);
+    }
+  }
+
+  /* ======= SECTION: 스토리 ======= */
+  .sec-story {
+    background: #ede3f8;
+    text-align: center;
+  }
+  .story-lead {
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2a1a4a;
+    line-height: 1.4;
+  }
+  .story-quote {
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2a1a4a;
+    margin: 28px 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
+  .story-quote::before {
+    content: '"';
+    position: absolute;
+    top: -18px; left: -16px;
+    color: #5a2db0;
+    font-size: 36px;
+  }
+  .story-quote::after {
+    content: '"';
+    position: absolute;
+    bottom: -28px; right: -16px;
+    color: #5a2db0;
+    font-size: 36px;
+  }
+  .story-tags {
+    margin-top: 8px;
+    font-size: 20px;
+    color: #5a4a78;
+    line-height: 1.7;
+  }
+  .story-tags strong {
+    display: block;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.95);
+    white-space: nowrap;
+  }
+
+  /* ======= SECTION: 견적 차이 ======= */
+  .sec-quote-diff {
+    background: #2a1a4a;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* ===== 동전 일러스트 배경 (옅게) ===== */
+  .coin-deco {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    opacity: 0.08;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+  }
+  .coin-deco svg { display: block; width: 100%; height: 100%; }
+  .sec-quote-diff > *:not(.coin-deco) { position: relative; z-index: 1; }
+  .coin-1 { top: 4%;   left: -6%;  width: 110px; height: 110px; transform: rotate(-18deg); }
+  .coin-2 { top: 14%;  right: -4%; width: 90px;  height: 90px;  transform: rotate(22deg); }
+  .coin-3 { top: 38%;  left: 4%;   width: 70px;  height: 70px;  transform: rotate(8deg); }
+  .coin-4 { top: 42%;  right: 6%;  width: 120px; height: 120px; transform: rotate(-25deg); }
+  .coin-5 { bottom: 18%; left: -4%; width: 100px; height: 100px; transform: rotate(15deg); }
+  .coin-6 { bottom: 6%;  right: -6%; width: 130px; height: 130px; transform: rotate(-12deg); }
+  .coin-7 { bottom: 30%; right: 38%; width: 60px;  height: 60px;  transform: rotate(35deg); opacity: 0.08; }
+  .coin-8 { top: 28%;   left: 38%;  width: 56px;  height: 56px;  transform: rotate(-30deg); opacity: 0.08; }
+  .sec-quote-diff .eyebrow { color: #ffd35a; }
+  .sec-quote-diff h2 {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    /* 더 연하고 자연스러운 글로우 */
+    text-shadow:
+      0 0 8px  rgba(196, 163, 230, 0.22),
+      0 0 22px rgba(196, 163, 230, 0.15),
+      0 0 48px rgba(196, 163, 230, 0.08),
+      0 0 80px rgba(196, 163, 230, 0.04);
+  }
+  /* 수백만원 — 3DAYS와 동일 구조, 그림자만 다크 퍼플 톤 */
+  .quote-num {
+    display: block;
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 97px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 18px 0 6px;
+    text-shadow:
+      /* 안쪽 링 (2px) — 다크 퍼플 */
+      0   -2px   0 #4a2c8a,
+      -1.5px -1.5px 0 #3a1f6e,
+      -2px  0    0 #2a1a4a,
+      -1.5px 1.5px 0 #1f0d3a,
+      0    2px   0 #14072a,
+      1.5px 1.5px 0 #1f0d3a,
+      2px   0    0 #2a1a4a,
+      1.5px -1.5px 0 #3a1f6e,
+      /* 중간 링 (3px) */
+      0   -3px   0 #4a2c8a,
+      -2.2px -2.2px 0 #3a1f6e,
+      -3px  0    0 #2a1a4a,
+      -2.2px 2.2px 0 #1f0d3a,
+      0    3px   0 #14072a,
+      2.2px 2.2px 0 #1f0d3a,
+      3px   0    0 #2a1a4a,
+      2.2px -2.2px 0 #3a1f6e,
+      /* 바깥 링 (4px) */
+      0   -4px   0 #4a2c8a,
+      -3px  -3px 0 #3a1f6e,
+      -4px  0    0 #2a1a4a,
+      -3px  3px  0 #1f0d3a,
+      0    4px   0 #14072a,
+      3px   3px  0 #1f0d3a,
+      4px   0    0 #2a1a4a,
+      3px  -3px  0 #3a1f6e,
+      /* 유리 굴절 halo — 옅은 라벤더 */
+      0 0 8px rgba(150, 110, 210, 0.55),
+      0 0 16px rgba(120, 80, 180, 0.35),
+      /* Extrude — 다크 퍼플 블록 */
+      0 5px 0 #1f0d3a,
+      0 8px 0 #1f0d3a,
+      0 11px 0 #1f0d3a,
+      /* 바닥 그림자 — 깊은 퍼플 */
+      0 17px 20px rgba(15, 5, 35, 0.55);
+  }
+  .quote-num small {
+    display: block;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 31.5px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+    margin-top: 26px;
+    /* h2와 동일한 연한 라벤더 글로우 */
+    text-shadow:
+      0 0 8px  rgba(196, 163, 230, 0.22),
+      0 0 22px rgba(196, 163, 230, 0.15),
+      0 0 48px rgba(196, 163, 230, 0.08),
+      0 0 80px rgba(196, 163, 230, 0.04);
+  }
+  .quote-body-medium {
+    display: block;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    letter-spacing: -0.4px;
+    font-size: 13.5px;
+    opacity: 0.8;
+  }
+  /* 세로 점 ··· (두 단락 사이) */
+  .quote-vdots {
+    display: block;
+    text-align: center;
+    color: rgba(255,255,255,0.55);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: 0;
+    margin: 18px 0;
+    user-select: none;
+  }
+  .quote-body {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.35;
+    letter-spacing: -0.6px;
+    margin-top: 14px;
+    white-space: nowrap;
+  }
+  .quote-body strong {
+    font-size: 25.5px;
+  }
+
+  /* ======= CTA SECTION ======= */
+  .sec-cta {
+    background: linear-gradient(180deg, #faf3ff 0%, #fff 100%);
+    text-align: center;
+    padding: 48px 24px 56px;
+  }
+  /* 히어로의 hero-store-pill과 동일한 칩 스타일 */
+  .cta-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(196, 163, 230, 0.6);
+    color: #4a2c8a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(6px);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .cta-title {
+    font-family: 'SeoulAlrim', 'Pretendard', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #000000;
+    letter-spacing: -0.6px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.95);
+    text-align: center;
+  }
+  .cta-title strong { color: #5a2db0; }
+  .cta-sub {
+    font-size: 13px;
+    color: #6a5a88;
+    margin-bottom: 28px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #5a2db0 0%, #2a1a4a 100%);
+    color: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 8px 20px rgba(90, 45, 176, 0.30);
+  }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-kakao {
+    background: #fee500;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-kakao::before {
+    content: '💬';
+    font-size: 16px;
+  }
+
+  /* form */
+  .form-box {
+    display: none;
+    margin-top: 16px;
+    padding: 22px 18px;
+    background: #fff;
+    border: 1px solid #e2d4f0;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(90, 45, 176, 0.08);
+    text-align: left;
+  }
+  .form-box.active { display: block; }
+  .form-box label {
+    display: block;
+    font-size: 12px;
+    color: #5a4a78;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .form-box input {
+    width: 100%;
+    padding: 14px 14px;
+    border: 1px solid #d8c8ec;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #faf5ff;
+    color: #2a1a4a;
+  }
+  .form-box input:focus {
+    outline: none;
+    border-color: #5a2db0;
+    background: #fff;
+  }
+  .form-submit {
+    margin-top: 18px;
+    background: #2a1a4a;
+    color: #fff;
+  }
+  .form-note {
+    font-size: 11px;
+    color: #8a7aa8;
+    margin-top: 12px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ======= FOOTER ======= */
+  footer {
+    background: #1a0d2e;
+    color: #b8a8d4;
+    padding: 36px 28px 40px;
+    font-size: 12px;
+    line-height: 1.85;
+  }
+  footer h4 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  footer .addr { color: #e0d4f5; }
+  footer .legal {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #3a2a5a;
+    color: #8a7aa8;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  /* ======= SUCCESS TOAST ======= */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: #2a1a4a;
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(42, 26, 74, 0.35);
+    transition: transform 0.3s ease;
+    z-index: 100;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <strong>입주·웨딩가전 미친혜택 찬스!</strong>
+  </div>
+
+  <!-- HERO (라벤더 그라데이션) -->
+  <header class="hero">
+
+    <!-- 상단 풍선 데코 띠 -->
+    <img src="상단데코.png" alt="" class="deco-top-band" onerror="this.style.display='none'"/>
+
+    <!-- 데코 워터마크 (저투명도) -->
+    <img src="풍선.png" alt="" class="deco deco-balloon-tr" onerror="this.style.display='none'"/>
+    <img src="풍선.png" alt="" class="deco deco-balloon-ml" onerror="this.style.display='none'"/>
+    <img src="선물상자.png" alt="" class="deco deco-gift-bl" onerror="this.style.display='none'"/>
+    <img src="선물상자.png" alt="" class="deco deco-gift-br" onerror="this.style.display='none'"/>
+    <img src="풍선.png" alt="" class="deco deco-balloon-tv" onerror="this.style.display='none'"/>
+
+    <!-- 컨페티 (폭죽 종이 효과) — 3DAYS 주변 -->
+    <span class="confetti cf-1"></span>
+    <span class="confetti cf-2"></span>
+    <span class="confetti cf-3"></span>
+    <span class="confetti cf-4"></span>
+    <span class="confetti cf-5"></span>
+    <span class="confetti cf-6"></span>
+    <span class="confetti cf-7"></span>
+    <span class="confetti cf-8"></span>
+    <span class="confetti cf-9"></span>
+    <span class="confetti cf-10"></span>
+    <span class="confetti cf-11"></span>
+    <span class="confetti cf-12"></span>
+    <span class="confetti cf-13"></span>
+    <span class="confetti cf-14"></span>
+    <span class="confetti cf-15"></span>
+    <span class="confetti cf-16"></span>
+
+    <!-- 상단: 매장 칩 (가운데 정렬) -->
+    <div class="hero-top">
+      <span class="hero-store-pill">한정 기간 · 청량리점 단독 진행</span>
+    </div>
+
+    <!-- 메인 타이틀 -->
+    <h1 class="hero-title">
+      <span class="t-line1">올 상반기, 가장 큰 혜택!</span>
+      <span class="t-line2">역대급 상반기 총결산</span>
+      <span class="t-line3">3DAYS</span>
+    </h1>
+
+    <p class="hero-sub">OPEN SALE&nbsp;&nbsp;6.5(금) ~ 6.7(일)</p>
+
+    <!-- 가전 이미지 (가전 이미지 파일이 폴더에 추가되면 자동 표시) -->
+    <div class="hero-products">
+      <img src="가전이미지.png" alt="입주·웨딩가전 라인업" onerror="this.parentElement.style.display='none'"/>
+    </div>
+
+    <div class="hero-prebook">
+      <span class="prebook-label">사전 예약 기간</span>
+      <strong class="prebook-date">5.18(월) ~ 6.4(목)</strong>
+    </div>
+
+    <div class="partner-x hero-partner-x">
+      <img src="콜라보로고.png" alt="웨딩크라우드 × 롯데하이마트 청량리점" class="partner-collab"/>
+    </div>
+  </header>
+
+  <!-- SECTION 3: 고민 -->
+  <section class="sec-pains">
+    <h2>웨딩·입주가전 준비할 때 이런 고민 많으셨죠?</h2>
+
+    <div class="pain-list">
+      <div class="pain-item">어디가 진짜 혜택이 좋은 거지?</div>
+      <div class="pain-item">견적은 다 다른데 뭐가 맞는 거지?</div>
+      <div class="pain-item">카드 조건이 너무 복잡하고 어려워…</div>
+      <div class="pain-item">비대면 견적, 믿고 진행해도 될까?</div>
+    </div>
+
+    <div class="pain-dots"><span>·</span><span>·</span><span>·</span></div>
+    <p class="pain-cta">하나라도 해당된다면 <span class="cta-medium">지금 바로 문의하세요.</span><br/>청량리점<span class="cta-medium">에서 해결해 드릴게요!</span></p>
+  </section>
+
+  <!-- SECTION 2: 왜 청량리점 -->
+  <section class="sec-reasons">
+    <span class="eyebrow">왜 청량리점이어야 할까요?</span>
+    <h2>웨딩·입주가전 성지<br/><span style="font-weight:500;">한 번에 제대로 끝내세요!</span></h2>
+
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-num">01</span>
+        <h3>전국최저가 보장</h3>
+        <p>온·오프라인 실시간 비교를 통해 최저가 100% 보장</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">02</span>
+        <h3>웨딩·입주 전문매니저 1:1 맞춤견적</h3>
+        <p>예산·평수·라이프스타일까지 고려한 최적 가전 조합 추천</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">03</span>
+        <h3>입주·웨딩가전 특별 프로모션</h3>
+        <p>입주·웨딩 고객 전용 혜택가 적용</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">04</span>
+        <h3>전국 비대면 견적 지원</h3>
+        <p>방문 없이도 시간 낭비 없이 빠르고 정확한 맞춤 견적 제공</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4+5: 웨딩크라우드 + 혜택 (통합) -->
+  <section class="sec-benefits">
+    <!-- 폭죽(컨페티) — 섹션 상단 전체 폭 -->
+    <span class="partner-confetti pc-1"></span>
+      <span class="partner-confetti pc-2"></span>
+      <span class="partner-confetti pc-3"></span>
+      <span class="partner-confetti pc-4"></span>
+      <span class="partner-confetti pc-5"></span>
+      <span class="partner-confetti pc-6"></span>
+      <span class="partner-confetti pc-7"></span>
+      <span class="partner-confetti pc-8"></span>
+      <span class="partner-confetti pc-9"></span>
+      <span class="partner-confetti pc-10"></span>
+      <span class="partner-confetti pc-11"></span>
+      <span class="partner-confetti pc-12"></span>
+      <span class="partner-confetti pc-13"></span>
+      <span class="partner-confetti pc-14"></span>
+      <span class="partner-confetti pc-15"></span>
+      <span class="partner-confetti pc-16"></span>
+    <div class="partner-title-wrap">
+      <h2 class="partner-title">웨딩가전 성지 전국 <span class="rank-badge"><span class="rank-num">1</span><span class="rank-suffix">등</span></span></h2>
+    </div>
+    <h2><span style="font-weight:500;">혜택 규모부터 다른</span> 입주·웨딩가전</h2>
+
+    <div class="benefits">
+      <div class="benefit-row">
+        <span class="benefit-icon"><img src="쿠폰.png" alt="쿠폰" style="width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;"/></span>
+        <span class="benefit-label">최대 할인율 <span class="benefit-strong">55%</span></span>
+      </div>
+      <div class="benefit-row">
+        <span class="benefit-icon"><img src="혜택.png" alt="혜택" style="width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;"/></span>
+        <span class="benefit-label">추가 혜택 <span class="benefit-strong">280만 원</span></span>
+      </div>
+      <div class="benefit-row">
+        <span class="benefit-icon"><img src="카드.png" alt="카드" style="width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;"/></span>
+        <span class="benefit-label">무이자 할부 <span class="benefit-strong">24개월</span></span>
+      </div>
+      <div class="benefit-row">
+        <span class="benefit-icon"><img src="티비.png" alt="TV" style="width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;"/></span>
+        <span class="benefit-label">IPTV·제휴 추가 지원</span>
+      </div>
+      <div class="benefit-row benefit-highlight">
+        <img src="확성기.png" alt="" class="highlight-megaphone left"/>
+        <span class="benefit-label">청량리점 단독 혜택</span>
+        <img src="확성기.png" alt="" class="highlight-megaphone right"/>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 견적 차이 -->
+  <section class="sec-quote-diff">
+    <!-- 동전 일러스트 배경 -->
+    <span class="coin-deco coin-1"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cgf1" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="40%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#9d77d8"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#cgf1)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#7a4dc0" stroke-width="2" opacity="0.5"/><text x="50" y="64" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="800" fill="#7a4dc0">₩</text><ellipse cx="36" cy="32" rx="14" ry="7" fill="#ffffff" opacity="0.55" transform="rotate(-25 36 32)"/></svg></span>
+    <span class="coin-deco coin-2"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cgt2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="55%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#7a4dc0"/></linearGradient><linearGradient id="cge2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#9d77d8"/><stop offset="100%" stop-color="#5a2db0"/></linearGradient></defs><path d="M 8 50 Q 8 70 50 70 Q 92 70 92 50 L 92 56 Q 92 76 50 76 Q 8 76 8 56 Z" fill="url(#cge2)"/><ellipse cx="50" cy="50" rx="42" ry="20" fill="url(#cgt2)"/><ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="#7a4dc0" stroke-width="1.5" opacity="0.45"/><ellipse cx="40" cy="44" rx="14" ry="4" fill="#ffffff" opacity="0.6"/></svg></span>
+    <span class="coin-deco coin-3"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cgt3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="55%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#7a4dc0"/></linearGradient><linearGradient id="cge3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#9d77d8"/><stop offset="100%" stop-color="#5a2db0"/></linearGradient></defs><path d="M 8 50 Q 8 70 50 70 Q 92 70 92 50 L 92 56 Q 92 76 50 76 Q 8 76 8 56 Z" fill="url(#cge3)"/><ellipse cx="50" cy="50" rx="42" ry="20" fill="url(#cgt3)"/><ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="#7a4dc0" stroke-width="1.5" opacity="0.45"/><ellipse cx="40" cy="44" rx="14" ry="4" fill="#ffffff" opacity="0.6"/></svg></span>
+    <span class="coin-deco coin-4"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cgf4" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="40%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#9d77d8"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#cgf4)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#7a4dc0" stroke-width="2" opacity="0.5"/><text x="50" y="64" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="800" fill="#7a4dc0">₩</text><ellipse cx="36" cy="32" rx="14" ry="7" fill="#ffffff" opacity="0.55" transform="rotate(-25 36 32)"/></svg></span>
+    <span class="coin-deco coin-5"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cgf5" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="40%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#9d77d8"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#cgf5)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#7a4dc0" stroke-width="2" opacity="0.5"/><text x="50" y="64" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="800" fill="#7a4dc0">₩</text><ellipse cx="36" cy="32" rx="14" ry="7" fill="#ffffff" opacity="0.55" transform="rotate(-25 36 32)"/></svg></span>
+    <span class="coin-deco coin-6"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cgt6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="55%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#7a4dc0"/></linearGradient><linearGradient id="cge6" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#9d77d8"/><stop offset="100%" stop-color="#5a2db0"/></linearGradient></defs><path d="M 8 50 Q 8 70 50 70 Q 92 70 92 50 L 92 56 Q 92 76 50 76 Q 8 76 8 56 Z" fill="url(#cge6)"/><ellipse cx="50" cy="50" rx="42" ry="20" fill="url(#cgt6)"/><ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="#7a4dc0" stroke-width="1.5" opacity="0.45"/><ellipse cx="40" cy="44" rx="14" ry="4" fill="#ffffff" opacity="0.6"/></svg></span>
+    <span class="coin-deco coin-7"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cgf7" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="40%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#9d77d8"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#cgf7)"/><circle cx="50" cy="50" r="38" fill="none" stroke="#7a4dc0" stroke-width="2" opacity="0.5"/><text x="50" y="64" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="34" font-weight="800" fill="#7a4dc0">₩</text><ellipse cx="36" cy="32" rx="14" ry="7" fill="#ffffff" opacity="0.55" transform="rotate(-25 36 32)"/></svg></span>
+    <span class="coin-deco coin-8"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cgt8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#faf3ff"/><stop offset="55%" stop-color="#d4b8f5"/><stop offset="100%" stop-color="#7a4dc0"/></linearGradient><linearGradient id="cge8" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#9d77d8"/><stop offset="100%" stop-color="#5a2db0"/></linearGradient></defs><path d="M 8 50 Q 8 70 50 70 Q 92 70 92 50 L 92 56 Q 92 76 50 76 Q 8 76 8 56 Z" fill="url(#cge8)"/><ellipse cx="50" cy="50" rx="42" ry="20" fill="url(#cgt8)"/><ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="#7a4dc0" stroke-width="1.5" opacity="0.45"/><ellipse cx="40" cy="44" rx="14" ry="4" fill="#ffffff" opacity="0.6"/></svg></span>
+    <h2>가전 견적, 대충 받으면</h2>
+    <div class="quote-num">
+      수백만원
+      <small>차이나는 것 알고 계신가요?</small>
+    </div>
+    <p class="quote-body">
+      <span class="quote-body-medium">같은 제품이어도 혜택·가격·구매조건까지 최종 금액은 달라집니다.</span>
+      <span class="quote-vdots">·<br/>·<br/>·</span>
+      웨딩·입주가전 특화매장 청량리점에서<br/>
+      <strong style="color:#ffd35a;">구매 조건부터 다르게 맞춰드립니다.</strong>
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec-cta">
+    <p class="cta-eyebrow">전국 최저가 보장</p>
+    <h2 class="cta-title">
+      비대면 견적<br/>
+      받아보세요
+    </h2>
+
+    <button class="btn btn-primary" id="btnQuote">맞춤 견적 요청하기</button>
+
+    <div class="form-box" id="quoteForm">
+      <label for="name">고객명</label>
+      <input id="name" type="text" placeholder="홍길동" />
+      <label for="phone">휴대폰 번호</label>
+      <input id="phone" type="tel" placeholder="010-1234-5678" />
+      <button class="btn form-submit" id="btnSubmit">신청 완료</button>
+      <p class="form-note">입력하신 정보는 상담 목적 외에 사용되지 않습니다.</p>
+    </div>
+
+    <a class="btn btn-kakao" href="https://pf.kakao.com/_ZmuCxl/chat" target="_blank" rel="noopener" style="margin-top:10px;">카카오톡으로 상담하기</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h4>롯데하이마트 청량리점</h4>
+    <p class="addr">서울 동대문구 왕산로 214<br/>롯데마트 청량리점 6층</p>
+    <p style="margin-top:14px;">
+      웨딩·입주가전 전문 상담<br/>
+      웨딩크라우드 공식 제휴매장
+    </p>
+    <p class="legal">
+      © 롯데하이마트 청량리점 · 본 페이지는 청량리점 단독 프로모션 안내 페이지입니다.<br/>
+      혜택 적용 조건은 매장 상담 시 안내됩니다.
+    </p>
+  </footer>
+</div>
+
+<div class="toast" id="toast">신청이 완료되었습니다 ✓</div>
+
+<script>
+  const btnQuote = document.getElementById('btnQuote');
+  const form = document.getElementById('quoteForm');
+  const btnSubmit = document.getElementById('btnSubmit');
+  const toast = document.getElementById('toast');
+
+  btnQuote.addEventListener('click', () => {
+    form.classList.toggle('active');
+    if (form.classList.contains('active')) {
+      btnQuote.textContent = '입력창 닫기';
+      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      btnQuote.textContent = '맞춤 견적 요청하기';
+    }
+  });
+
+  btnSubmit.addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || !phone) {
+      alert('이름과 휴대폰 번호를 입력해 주세요.');
+      return;
+    }
+    // TODO: Google Apps Script Web App endpoint로 fetch POST 연결 예정 (시안 단계)
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2600);
+    document.getElementById('name').value = '';
+    document.getElementById('phone').value = '';
+    form.classList.remove('active');
+    btnQuote.textContent = '맞춤 견적 요청하기';
+  });
+</script>
+</body>
+</html>
