@@ -1569,6 +1569,9 @@
     }
   });
 
+  // Google Apps Script Web App 엔드포인트 (Google Sheets 자동 적재)
+  const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz1oSzgJhAgnF_TZXTiXzzz0dw70y80kgkc_vhS3eX7MJ0cryhBKwGSzGfFTSK4jDHasQ/exec';
+
   btnSubmit.addEventListener('click', () => {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -1576,13 +1579,31 @@
       alert('이름과 휴대폰 번호를 입력해 주세요.');
       return;
     }
-    // TODO: Google Apps Script Web App endpoint로 fetch POST 연결 예정 (시안 단계)
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2600);
-    document.getElementById('name').value = '';
-    document.getElementById('phone').value = '';
-    form.classList.remove('active');
-    btnQuote.textContent = '맞춤 견적 요청하기';
+
+    // 중복 클릭 방지
+    btnSubmit.disabled = true;
+    const originalText = btnSubmit.textContent;
+    btnSubmit.textContent = '제출 중...';
+
+    // Google Sheets 적재 (no-cors: 응답 못 읽지만 데이터는 정상 전송됨)
+    fetch(SHEETS_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name: name, phone: phone })
+    }).catch(err => {
+      console.error('전송 실패:', err);
+    }).finally(() => {
+      // 사용자 경험을 위해 UI는 항상 성공으로 진행 (no-cors라 실제 성공 여부 모름)
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+      document.getElementById('name').value = '';
+      document.getElementById('phone').value = '';
+      form.classList.remove('active');
+      btnQuote.textContent = '맞춤 견적 요청하기';
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = originalText;
+    });
   });
 </script>
 </body>
